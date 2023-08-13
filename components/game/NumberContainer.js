@@ -21,5 +21,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-	numberText: { color: Colors.secondary1, fontSize: 38 },
+	numberText: {
+		color: Colors.secondary1,
+		fontSize: 38,
+		fontFamily: 'open-sans-bold',
+	},
 });

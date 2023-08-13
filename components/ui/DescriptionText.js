@@ -11,5 +11,6 @@ const styles = StyleSheet.create({
 	descriptionText: {
 		color: Colors.secondary1,
 		fontSize: 25,
+		fontFamily: 'open-sans',
 	},
 });
