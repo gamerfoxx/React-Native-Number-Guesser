@@ -35,8 +35,9 @@ export default function App() {
 
 	let screen = <StartGameScreen onConfirmNumber={pickedNumberHandler} />;
 
-	function gameOverHandler() {
+	function gameOverHandler(numberOfRounds) {
 		setGameOver(true);
+		setRoundsNum(numberOfRounds);
 	}
 
 	if (userNumber) {
