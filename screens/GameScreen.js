@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
 	gameScreen: {
 		flex: 1,
 		padding: 30,
+		alignItems: 'center',
 	},
 	buttonsContainer: {
 		flexDirection: 'row',
