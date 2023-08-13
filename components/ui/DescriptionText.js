@@ -10,5 +10,6 @@ export default DescriptionText;
 const styles = StyleSheet.create({
 	descriptionText: {
 		color: Colors.secondary1,
+		fontSize: 25,
 	},
 });
