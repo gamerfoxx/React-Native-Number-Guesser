@@ -1,7 +1,9 @@
-import { StyleSheet, TextInput, View, Alert } from 'react-native';
+import { StyleSheet, TextInput, View, Text, Alert } from 'react-native';
 import { useState } from 'react';
 import MainButton from '../components/ui/MainButton';
 import Colors from '../constants/colors';
+import Title from '../components/ui/Title';
+import Card from '../components/ui/Card';
 
 function StartGameScreen({ onConfirmNumber }) {
 	const [enteredGuess, setEnteredGuess] = useState('');
@@ -29,24 +31,28 @@ function StartGameScreen({ onConfirmNumber }) {
 	}
 
 	return (
-		<View style={styles.userInputContainer}>
-			<TextInput
-				style={styles.userGuessInput}
-				maxLength={2}
-				keyboardType="number-pad"
-				autoCapitalize="none"
-				autoCorrect={false}
-				value={enteredGuess}
-				onChangeText={numberInputHander}
-			/>
-			<View style={styles.buttonsContainer}>
-				<View style={styles.buttonContainer}>
-					<MainButton onPress={resetGuessHandler}>Reset</MainButton>
+		<View style={styles.mainContainer}>
+			<Title>Guess a number</Title>
+			<Card>
+				<Text style={styles.instructionText}>Enter a Number Please</Text>
+				<TextInput
+					style={styles.userGuessInput}
+					maxLength={2}
+					keyboardType="number-pad"
+					autoCapitalize="none"
+					autoCorrect={false}
+					value={enteredGuess}
+					onChangeText={numberInputHander}
+				/>
+				<View style={styles.buttonsContainer}>
+					<View style={styles.buttonContainer}>
+						<MainButton onPress={resetGuessHandler}>Reset</MainButton>
+					</View>
+					<View style={styles.buttonContainer}>
+						<MainButton onPress={confirmInputHandler}>Confirm</MainButton>
+					</View>
 				</View>
-				<View style={styles.buttonContainer}>
-					<MainButton onPress={confirmInputHandler}>Confirm</MainButton>
-				</View>
-			</View>
+			</Card>
 		</View>
 	);
 }
@@ -54,19 +60,13 @@ function StartGameScreen({ onConfirmNumber }) {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-	userInputContainer: {
+	mainContainer: {
+		flex: 1,
 		marginTop: 100,
-		marginHorizontal: 24,
-		padding: 16,
-		backgroundColor: Colors.primary1,
-		borderRadius: 10,
-		elevation: 8, // elevation used to add shadow on android
-		shadowColor: 'black', // shadow used to add shadow on IOS
-		shadowOffset: { width: 2, height: 2 },
-		shadowRadius: 6,
-		shadowOpacity: 0.25,
-		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	instructionText: {
+		color: Colors.secondary1,
 	},
 	userGuessInput: {
 		height: 50,
