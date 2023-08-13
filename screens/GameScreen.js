@@ -30,6 +30,11 @@ function GameScreen({ userNumber, onGameOver }) {
 		}
 	}, [currentGuess, userNumber, onGameOver]); //dependencies for everything called in useEffect
 
+	useEffect(() => {
+		minBoundary = 1;
+		maxBoundary = 100;
+	}, []); // no dependencies would only be run when the component is loaded
+
 	function nextGuessHandler(direction) {
 		if (
 			(direction === 'lower' && currentGuess < userNumber) ||

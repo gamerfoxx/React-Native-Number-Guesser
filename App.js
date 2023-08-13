@@ -13,6 +13,7 @@ import GameOver from './screens/GameOver';
 export default function App() {
 	const [userNumber, setUserNumber] = useState();
 	const [gameOver, setGameOver] = useState(true);
+	const [roundsNum, setRoundsNum] = useState(0);
 
 	const [fontsLoaded] = useFonts({
 		'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -25,6 +26,11 @@ export default function App() {
 	function pickedNumberHandler(userNumber) {
 		setUserNumber(userNumber);
 		setGameOver(false);
+	}
+
+	function startNewGameHandler() {
+		setUserNumber(null);
+		setRoundsNum(0);
 	}
 
 	let screen = <StartGameScreen onConfirmNumber={pickedNumberHandler} />;
@@ -43,7 +49,13 @@ export default function App() {
 	}
 
 	if (gameOver && userNumber) {
-		screen = <GameOver />;
+		screen = (
+			<GameOver
+				userNumber={userNumber}
+				roundsNum={roundsNum}
+				onStartNewGame={startNewGameHandler}
+			/>
+		);
 	}
 
 	return (
