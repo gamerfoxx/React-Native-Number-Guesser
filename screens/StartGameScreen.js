@@ -1,4 +1,10 @@
-import { StyleSheet, TextInput, View, Alert } from 'react-native';
+import {
+	StyleSheet,
+	TextInput,
+	View,
+	Alert,
+	useWindowDimensions,
+} from 'react-native';
 import { useState } from 'react';
 import MainButton from '../components/ui/MainButton';
 import Colors from '../constants/colors';
@@ -8,6 +14,8 @@ import DescriptionText from '../components/ui/DescriptionText';
 
 function StartGameScreen({ onConfirmNumber }) {
 	const [enteredGuess, setEnteredGuess] = useState('');
+	const { width, height } = useWindowDimensions(); // used to evaluate the sizes of the app dynamically
+	//basically used to ensure the sizes are correct if the user rotates as using the app
 
 	function numberInputHander(enteredNumber) {
 		setEnteredGuess(enteredNumber);
@@ -30,9 +38,10 @@ function StartGameScreen({ onConfirmNumber }) {
 		}
 		onConfirmNumber(lChosenNumber);
 	}
+	const marginTopDistance = height < 250 ? 20 : 50;
 
 	return (
-		<View style={styles.mainContainer}>
+		<View style={[styles.mainContainer, { marginTop: marginTopDistance }]}>
 			<Title>Guess a number</Title>
 			<Card>
 				<DescriptionText>Enter a Number Please</DescriptionText>
@@ -63,7 +72,6 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
 	mainContainer: {
 		flex: 1,
-		marginTop: 100,
 		alignItems: 'center',
 	},
 	userGuessInput: {
