@@ -1,6 +1,7 @@
 import { StyleSheet, TextInput, View, Alert } from 'react-native';
 import { useState } from 'react';
 import MainButton from '../components/MainButton';
+import Colors from '../constants/colors';
 
 function StartGameScreen({ onConfirmNumber }) {
 	const [enteredGuess, setEnteredGuess] = useState('');
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
 		marginTop: 100,
 		marginHorizontal: 24,
 		padding: 16,
-		backgroundColor: '#631574',
+		backgroundColor: Colors.primary1,
 		borderRadius: 10,
 		elevation: 8, // elevation used to add shadow on android
 		shadowColor: 'black', // shadow used to add shadow on IOS
@@ -71,9 +72,9 @@ const styles = StyleSheet.create({
 		height: 50,
 		width: 50,
 		fontSize: 34,
-		borderBottomColor: '#eea41e',
+		borderBottomColor: Colors.secondary1,
 		borderBottomWidth: 2,
-		color: '#eea41e',
+		color: Colors.secondary1,
 		marginVertical: 10,
 		fontWeight: 'bold',
 		textAlign: 'center',
