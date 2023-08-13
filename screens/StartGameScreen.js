@@ -11,8 +11,14 @@ function StartGameScreen() {
 				autoCapitalize="none"
 				autoCorrect={false}
 			/>
-			<MainButton>Reset</MainButton>
-			<MainButton>Confirm</MainButton>
+			<View style={styles.buttonsContainer}>
+				<View style={styles.buttonContainer}>
+					<MainButton>Reset</MainButton>
+				</View>
+				<View style={styles.buttonContainer}>
+					<MainButton>Confirm</MainButton>
+				</View>
+			</View>
 		</View>
 	);
 }
@@ -31,6 +37,8 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 2, height: 2 },
 		shadowRadius: 6,
 		shadowOpacity: 0.25,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	userGuessInput: {
 		height: 50,
@@ -42,5 +50,11 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 		fontWeight: 'bold',
 		textAlign: 'center',
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+	},
+	buttonContainer: {
+		flex: 1,
 	},
 });

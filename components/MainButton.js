@@ -25,16 +25,16 @@ export default MainButton;
 
 const styles = StyleSheet.create({
 	buttonOuterContainer: {
-		borderRadius: 30,
-		margin: 4,
 		overflow: 'hidden',
 	},
 
 	buttonInnerContainer: {
+		borderRadius: 30,
 		backgroundColor: '#742685',
 		paddingHorizontal: 5,
 		paddingVertical: 10,
 		elevation: 2,
+		margin: 4,
 	},
 	buttonText: {
 		color: 'white',
